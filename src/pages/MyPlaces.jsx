@@ -1,6 +1,6 @@
 import React from 'react'
 
-function MyPlaces() {
+const MyPlaces =()=> {
   return (
     <div>MyPlaces</div>
   )

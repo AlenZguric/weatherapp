@@ -1,13 +1,15 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter , Route, Routes } from "react-router-dom";
 import Home from "./pages/HomePage";
 import MyPlaces from "./pages/MyPlaces";
 import Favorites from "./pages/Favorites";
 import About from "./pages/About";
 import NavBar from "./components/header/NavBar";
+import CityDetails from "./components/main/CityDetails";
+import CityListWeather from "./components/main/CityListWeather";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="App">
         <footer>
           <NavBar />
@@ -18,11 +20,14 @@ function App() {
             <Route path="/myplaces" element={<MyPlaces/>} />
             <Route path="/favorites" element={<Favorites/>} />
             <Route path="/about" element={<About/>} />
+
+            <Route path='/citys/:cityName' element={<CityDetails />} />
+            <Route path="/citylistweather" element={<CityListWeather />} />
           </Routes>
         </main>
         <footer></footer>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

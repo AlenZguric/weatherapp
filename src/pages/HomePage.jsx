@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import CityListWeather from "../components/main/CityListWeather";
 
-function HomePage() {
+const HomePage = () => {
   return (
-    <div>HomePage</div>
-  )
-}
+    <div className="homePage">
+      <CityListWeather/>
+    </div>
+  );
+};
 
-export default HomePage
+export default HomePage;
