@@ -1,8 +1,14 @@
 import React from 'react'
+import MapWithPlaces from '../components/main/MapWithPlaces'
 
 const MyPlaces =()=> {
   return (
-    <div>MyPlaces</div>
+    <div className="myplacesPage">
+      <div className="city-details"></div>
+      <div className="show-location">
+        <MapWithPlaces/>
+      </div>
+    </div>
   )
 }
 
