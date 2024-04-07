@@ -1,10 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useMemo } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo_dall_e3 from "../../assets/images/background_img/logo_dall_e3.jpg";
+import SearchBar from "./SearchBar";
 
 import "../../assets/style/header/NavBar.css";
 
 function NavBar() {
+  
+  const location = useLocation();
+  const showSearchBar = useMemo(() => {
+    return location.pathname !== "/about";
+  }, [location.pathname]);
+
+  const handleSearch = (searchTerm) => {
+    // Ovdje možete postaviti logiku za pretraživanje
+    console.log("Search term:", searchTerm);
+  };
+
+  useEffect(() => {});
+
   return (
     <div className="navBar">
       <div className="group">
@@ -15,10 +29,7 @@ function NavBar() {
             </div>
           </Link>
         </div>
-        <div className="search">
-          <input type="text" placeholder="Search..." />
-          <button>Search</button>
-        </div>
+        {showSearchBar && <SearchBar onSearch={handleSearch} />}
         <div className="navigations">
           <Link to="/">Home</Link>
           <Link to="/myplaces">My Places</Link>
