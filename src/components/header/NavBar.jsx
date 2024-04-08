@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo_dall_e3 from "../../assets/images/background_img/logo_dall_e3.jpg";
-import SearchBar from "./SearchBar";
+import SearchBar from "../header/SearchBar";
 
 import "../../assets/style/header/NavBar.css";
 
