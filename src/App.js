@@ -8,18 +8,21 @@ import CityDetails from "./components/main/CityDetails";
 import CityListWeather from "./components/main/CityListWeather";
 
 function App() {
+
+
   return (
     <BrowserRouter>
       <div className="App">
-        <footer>
+        <header>
           <NavBar />
-        </footer>
+        </header>
         <main>
           <Routes>
             <Route exact path="/" element={<Home/>} />
             <Route path="/myplaces" element={<MyPlaces/>} />
             <Route path="/favorites" element={<Favorites/>} />
             <Route path="/about" element={<About/>} />
+            <Route path="/myplaces/:cityName" element={<CityDetails />} />
 
             <Route path='/citys/:cityName' element={<CityDetails />} />
             <Route path="/citylistweather" element={<CityListWeather />} />

@@ -3,18 +3,14 @@ import axios from "axios";
 import { API_Key } from "../../Api/ApiKey";
 import { Link } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const CityListWeather = () => {
   const [weatherData, setWeatherData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem("favorites")) || []);
 
-  const addToFavorites = (cityName) => {
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    if (!favorites.includes(cityName)) {
-      favorites.push(cityName);
-      localStorage.setItem("favorites", JSON.stringify(favorites));
-    }
-  };
 
   useEffect(() => {
     const cities = [
@@ -30,7 +26,26 @@ const CityListWeather = () => {
       { name: "Los Angeles", lat: 34.05, lon: -118.24 },
       { name: "São Paulo", lat: -23.55, lon: -46.64 },
       { name: "Zagreb", lat: 45.81, lon: 15.98 },
+      { name: "Toronto", lat: 43.65, lon: -79.38 },
+      { name: "Mexico City", lat: 19.43, lon: -99.13 },
+      { name: "Istanbul", lat: 41.01, lon: 28.97 },
+      { name: "Mumbai", lat: 19.07, lon: 72.87 },
+      { name: "Shanghai", lat: 31.23, lon: 121.47 },
+      { name: "Cairo", lat: 30.04, lon: 31.24 },
+      { name: "Bangkok", lat: 13.75, lon: 100.51 },
+      { name: "Seoul", lat: 37.57, lon: 126.98 },
+      { name: "Osaka", lat: 34.69, lon: 135.5 },
+      { name: "Lagos", lat: 6.52, lon: 3.38 },
+      { name: "Jakarta", lat: -6.21, lon: 106.85 },
+      { name: "Lima", lat: -12.05, lon: -77.04 },
+      { name: "Bangalore", lat: 12.97, lon: 77.59 },
+      { name: "Kolkata", lat: 22.57, lon: 88.36 },
+      { name: "Moscow", lat: 55.75, lon: 37.62 },
+      { name: "Manila", lat: 14.6, lon: 120.98 },
+      { name: "Rio de Janeiro", lat: -22.91, lon: -43.18 },
+      { name: "Karachi", lat: 24.86, lon: 67.01 },
     ];
+    
 
     const fetchData = async () => {
       try {
@@ -49,8 +64,6 @@ const CityListWeather = () => {
               minTemp: response.data.main.temp_min.toFixed(1),
               maxTemp: response.data.main.temp_max.toFixed(1),
             };
-
-            //console.log(response);
             return cityWeatherData;
           })
         );
@@ -62,6 +75,18 @@ const CityListWeather = () => {
     setIsLoading(false)
     fetchData();
   }, []);
+
+
+
+  const toggleFavorite = (cityName) => {
+    const updatedFavorites = favorites.includes(cityName)
+      ? favorites.filter((fav) => fav !== cityName)
+      : [...favorites, cityName];
+    setFavorites(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
+  
+
   return (
     <div className="city-list-weather">
       <h1>Weather Forecast</h1>
@@ -83,13 +108,14 @@ const CityListWeather = () => {
               src={`http://openweathermap.org/img/wn/${cityWeather.icon}.png`}
               alt="Weather Icon"
             />
-            <button onClick={() => addToFavorites(cityWeather.name)}>
-              Add to Favorites
-            </button>
+            <FontAwesomeIcon
+              icon={faStar}
+              color={favorites.includes(cityWeather.name) ? 'yellow' : 'black'}
+              onClick={() => toggleFavorite(cityWeather.name)}
+            />
           </div>
         ))}
       </div>}
-     
     </div>
   );
 };

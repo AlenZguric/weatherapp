@@ -1,15 +1,17 @@
-import React from 'react'
-import MapWithPlaces from '../components/main/MapWithPlaces'
+import React, { useState } from 'react';
+import CityDetails from '../components/main/CityDetails';
 
-const MyPlaces =()=> {
+const MyPlaces = () => {
+  const [selectedCity, setSelectedCity] = useState(null);
+
+ 
   return (
     <div className="myplacesPage">
-      <div className="city-details"></div>
-      <div className="show-location">
-        <MapWithPlaces/>
+      <div className="city-details">
+        <CityDetails cityName={selectedCity} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MyPlaces
+export default MyPlaces;
