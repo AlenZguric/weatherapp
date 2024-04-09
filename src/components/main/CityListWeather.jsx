@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import cityWeatherData from "../../utils/cityWeatherData";
 
 const CityListWeather = () => {
   const [weatherData, setWeatherData] = useState([]);
@@ -54,17 +55,10 @@ const CityListWeather = () => {
             const response = await axios.get(
               `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${API_Key}&units=metric`
             );
-            const cityWeatherData = {
-              name: city.name,
-              feelsLike: response.data.main.feels_like.toFixed(1),
-              temp: response.data.main.temp.toFixed(1),
-              wind: response.data.wind.speed,
-              precipitation: response.data.weather[0].main,
-              icon: response.data.weather[0].icon,
-              minTemp: response.data.main.temp_min.toFixed(1),
-              maxTemp: response.data.main.temp_max.toFixed(1),
-            };
-            return cityWeatherData;
+          //  console.log(response)
+
+          const cityWeatherDataObject = cityWeatherData(city, response);
+            return cityWeatherDataObject;
           })
         );
         setWeatherData(data);
