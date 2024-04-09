@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { fetchWeatherDataForCity } from "../../utils/fetchWeatherDataForCity ";
+import { getWindDirection } from '../../utils/getWindDirection';
 import FiveDayForecast from "../../components/main/FiveDayForecast";
 
 
 const CityDetails = () => {
-  const [cityWeather, setCityWeather] = useState(null);
+  const [cityWeather, setCityWeather] = useState(null);  
   const { cityName } = useParams();
+ 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,8 +23,12 @@ const CityDetails = () => {
     fetchData();
   }, [cityName]);
 
+
+
   if (!cityWeather) {
-    return <div>Loading...</div>;
+    return <div className='error-msg'>
+        Name of the city not found! Please check your input and try again!!!
+    </div>;
   }
 
   // Prikaz detaljnih informacija o vremenu za odabrani grad
@@ -35,11 +41,16 @@ const CityDetails = () => {
       <p>Min. Temp: {cityWeather.main && cityWeather.main.temp_min.toFixed(1)} °C</p>
       <p>Max. Temp: {cityWeather.main && cityWeather.main.temp_max.toFixed(1)} °C</p>
       <p>Wind: {cityWeather.wind && cityWeather.wind.speed.toFixed(1)} m/s</p>
+      {cityWeather.wind && (
+        <p>Wind direction: {getWindDirection(cityWeather.wind.deg)}</p>
+      )}
+
       <p>Precipitation: {cityWeather.weather && cityWeather.weather[0].main}</p>
       <img src={`http://openweathermap.org/img/wn/${cityWeather.weather && cityWeather.weather[0].icon}.png`} alt='Weather Icon' />
       <div className="five-days">
       <FiveDayForecast/>
       </div>
+      
     </div>
   );
 };
