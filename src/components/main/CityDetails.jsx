@@ -16,17 +16,25 @@ const CityDetails = () => {
         setCityWeather(weatherData);
 
         const storedCities =
-          JSON.parse(localStorage.getItem("selectedCities")) || [];
+        JSON.parse(localStorage.getItem("selectedCities")) || [];
+      const existingCityIndex = storedCities.findIndex(
+        (cityObj) => cityObj.name === cityName
+      );
+      const newCity = {
+        name: cityName,
+        timestamp: moment().format('DD.MM.YYYY'),
+      };
 
-          const cityExists = storedCities.some(city => city.name === cityName);
-          if (!cityExists) {
-            const newCity = {
-              name: cityName,
-              timestamp: moment().format(' DD.MM.YYYY'),
-            };
-        const updatedCities = [...storedCities, newCity];
-        localStorage.setItem("selectedCities", JSON.stringify(updatedCities));}
-        
+      if (existingCityIndex !== -1) {
+        // Ako grad već postoji, ažuriraj samo vrijeme
+        storedCities[existingCityIndex].timestamp = newCity.timestamp;
+      } else {
+        // Ako grad ne postoji, dodaj novi unos
+        storedCities.push(newCity);
+      }
+
+      localStorage.setItem("selectedCities", JSON.stringify(storedCities));
+
       } catch (error) {
         console.error("Error fetching data:", error);
       }
