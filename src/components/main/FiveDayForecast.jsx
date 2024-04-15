@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { fetchWeatherDataForFiveDays } from "../../utils/fetchWeatherDataForFiveDays";
 import formatDateTime from "../../utils/formatDateTime";
+import { getWindDirection } from "../../utils/getWindDirection";
+
 
 const FiveDayForecast = () => {
   const [forecastData, setForecastData] = useState(null);
@@ -51,7 +53,7 @@ const FiveDayForecast = () => {
               <p>Pressure: {forecast.main.pressure}  hPa</p>
               <div className="wind">
                 <p>Wind: {forecast.wind.speed.toFixed(1)} m/s</p>
-                <p>Wind direction {forecast.wind.deg}</p>
+                <p>Wind direction {getWindDirection(forecast.wind.deg)}</p>
               </div>
               <p>Precipitation: {forecast.weather[0].main}</p>
               <img src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`} alt='Weather Icon' />
