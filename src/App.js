@@ -22,7 +22,7 @@ function App() {
             <Route path="/myplaces" element={<MyPlaces/>} />
             <Route path="/favorites" element={<Favorites/>} />
             <Route path="/about" element={<About/>} />
-            <Route path="/myplaces/:cityName" element={<CityDetails />} />
+            <Route path="/citys/:cityName" element={<CityDetails />} />
 
             <Route path='/citys/:cityName' element={<CityDetails />} />
             <Route path="/citylistweather" element={<CityListWeather />} />

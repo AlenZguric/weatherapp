@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-import CityDetails from '../components/main/CityDetails';
+import React from 'react';
+import SearchedCityStorage from '../components/main/SearchedCityStorage';
 
 const MyPlaces = () => {
-  const [selectedCity, setSelectedCity] = useState(null);
 
- 
+
+
   return (
     <div className="myplacesPage">
-      <div className="city-details">
-        <CityDetails cityName={selectedCity} />
+      <div className='searched-city-storage'>
+        <SearchedCityStorage  />
       </div>
+
+     
     </div>
   );
 };

@@ -8,7 +8,7 @@ const SearchBar = () => {
   const handleSearch = () => {
     if (cityName.trim() !== '') {
       // Navigacija na "/myplaces" s unesenim gradom kao parametrom
-      navigate(`/myplaces/${cityName.trim()}`);
+      navigate(`/citys/${cityName.trim()}`);
 
       setCityName("");
     }
