@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SearchedCityStorage = () => {
   const storedCities = JSON.parse(localStorage.getItem('selectedCities')) || [];
@@ -14,7 +15,7 @@ const SearchedCityStorage = () => {
             {storedCities.map((city, index) => (
               <li key={index}>
                 <div className="city">
-                <p>{city.name} </p>
+               <Link to={`/citys/${city.name}`}><p>{city.name}</p> </Link>
                 </div>
                 <div className="time">
                   <p>Searched at:</p>
