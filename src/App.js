@@ -6,6 +6,7 @@ import About from "./pages/About";
 import NavBar from "./components/header/NavBar";
 import CityDetails from "./components/main/CityDetails";
 import CityListWeather from "./components/main/CityListWeather";
+import CopyRight from "./components/footer/CopyRight";
 
 function App() {
 
@@ -28,7 +29,9 @@ function App() {
             <Route path="/citylistweather" element={<CityListWeather />} />
           </Routes>
         </main>
-        <footer></footer>
+        <footer>
+          <CopyRight/>
+        </footer>
       </div>
     </BrowserRouter>
   );
