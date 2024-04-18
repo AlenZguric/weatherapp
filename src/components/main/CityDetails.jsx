@@ -26,10 +26,8 @@ const CityDetails = () => {
       };
 
       if (existingCityIndex !== -1) {
-        // Ako grad već postoji, ažuriraj samo vrijeme
         storedCities[existingCityIndex].timestamp = newCity.timestamp;
       } else {
-        // Ako grad ne postoji, dodaj novi unos
         storedCities.push(newCity);
       }
 
@@ -51,11 +49,10 @@ const CityDetails = () => {
     );
   }
 
-  // Prikaz detaljnih informacija o vremenu za odabrani grad
   return (
     <div className="city-details">
       <h2> Weather Details</h2>
-      <h3>{cityWeather.name}</h3>
+      <h3>{cityWeather.name} Now</h3>
       <p>
         Feels Like: {cityWeather.main && cityWeather.main.feels_like.toFixed(1)}{" "}
         °C
@@ -63,16 +60,10 @@ const CityDetails = () => {
       <p>
         Temperature: {cityWeather.main && cityWeather.main.temp.toFixed(1)} °C
       </p>
-      <p>
-        Min. Temp: {cityWeather.main && cityWeather.main.temp_min.toFixed(1)} °C
-      </p>
-      <p>
-        Max. Temp: {cityWeather.main && cityWeather.main.temp_max.toFixed(1)} °C
-      </p>
+     
       <p>Wind: {cityWeather.wind && cityWeather.wind.speed.toFixed(1)} m/s</p>
-      {cityWeather.wind && (
-        <p>Wind direction: {getWindDirection(cityWeather.wind.deg)}</p>
-      )}
+      <p>Wind direction: {getWindDirection(cityWeather.wind.deg)}
+      </p>
 
       <p>Precipitation: {cityWeather.weather && cityWeather.weather[0].main}</p>
       <img

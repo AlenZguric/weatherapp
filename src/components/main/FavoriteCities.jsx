@@ -39,8 +39,8 @@ const FavoriteCities = () => {
             {cityWeather ? (
               <div>
                 <h3>{cityWeather.name}</h3>
-                <p>Temperature: {cityWeather.main.temp} °C</p>
-                <p>feels like: {cityWeather.main.feels_like}</p>
+                <p>Temperature: {cityWeather.main.temp.toFixed(1)} °C</p>
+                <p>feels like: {cityWeather.main.feels_like.toFixed(1)} °C</p>
                 <RiDeleteBin6Line onClick={() => removeFromFavorites(cityWeather.name)} />
 
               </div>

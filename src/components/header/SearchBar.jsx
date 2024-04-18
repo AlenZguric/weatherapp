@@ -30,6 +30,7 @@ const SearchBar = () => {
         value={cityName}
         onChange={(e) => setCityName(e.target.value)}
         onKeyPress={handleKeyPress}
+        autoComplete='on'
       />
       <button onClick={handleSearch}>Search</button>
     </div>

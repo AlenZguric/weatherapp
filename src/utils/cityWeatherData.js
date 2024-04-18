@@ -7,6 +7,7 @@ const cityWeatherData = (city, response) => ({
     icon: response.data.weather[0].icon,
     minTemp: response.data.main.temp_min.toFixed(1),
     maxTemp: response.data.main.temp_max.toFixed(1),
+    windDirection: response.data.wind.deg,
   });
   
   export default cityWeatherData;
