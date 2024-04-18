@@ -18,6 +18,12 @@ const CityListWeather = () => {
     JSON.parse(localStorage.getItem("favorites")) || []
   );
 
+  const [loadedCities, setLoadedCities] = useState(5);
+
+  const loadMoreCities = () => {
+    setLoadedCities((prevLoadedCities) => prevLoadedCities + 5);
+  };
+
   useEffect(() => {
     const cities = [
       { name: "London", lat: 51.51, lon: -0.13 },
@@ -97,7 +103,7 @@ const CityListWeather = () => {
         <Oval />
       ) : (
         <div className="weather-cards">
-          {weatherData.map((cityWeather, index) => (
+          {weatherData.slice(0, loadedCities).map((cityWeather, index) => (
             <div className="weather-card" key={index}>
               <div className="image-of-city">
                 <div className="image">
@@ -146,10 +152,14 @@ const CityListWeather = () => {
                 }
                 onClick={() => toggleFavorite(cityWeather.name)}
               />
+              
             </div>
           ))}
         </div>
       )}
+      {!isLoading && loadedCities < weatherData.length && (
+                <button onClick={loadMoreCities}>Load More</button>
+              )}
     </div>
   );
 };
