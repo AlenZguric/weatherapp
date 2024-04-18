@@ -121,8 +121,8 @@ const CityListWeather = () => {
                   </a>
                 </div>
               </div>
-              <Link to={`/citys/${cityWeather.name}`}>
-                <h2>{cityWeather.name}</h2>
+              <Link to={`/citys/${cityWeather.name.replace(/_/g, " ")}`}>
+                <h2>{cityWeather.name.replace(/_/g, " ")}</h2>
               </Link>
 
               <p>Feels Like: {cityWeather.feelsLike} °C</p>
