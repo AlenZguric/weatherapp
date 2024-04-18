@@ -101,22 +101,24 @@ const CityListWeather = () => {
             <div className="weather-card" key={index}>
               <div className="image-of-city">
                 <div className="image">
-                {cityImages[cityWeather.name] && (
-                  <img
-                    src={cityImages[cityWeather.name]}
-                    alt={cityWeather.name}
-                    loading="lazy"
-                  />
-                )}
+                  {cityImages[cityWeather.name] && (
+                    <img
+                      src={cityImages[cityWeather.name]}
+                      alt={cityWeather.name}
+                      loading="lazy"
+                    />
+                  )}
                 </div>
                 <div className="wikipedia">
-                <a
-      href={`https://en.wikipedia.org/wiki/${encodeURIComponent(cityWeather.name)}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Wikipedia
-    </a>
+                  <a
+                    href={`https://en.wikipedia.org/wiki/${encodeURIComponent(
+                      cityWeather.name
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn about...
+                  </a>
                 </div>
               </div>
               <Link to={`/citys/${cityWeather.name}`}>
