@@ -37,85 +37,108 @@
 
       ul {
         display: flex;
+        flex: 1;
+        align-items: center;
         list-style-type: none;
         padding: 0;
         margin: 0;
 
         li {
-          margin-right:6px; // Dodajemo razmak između linkova
+          margin-right: 6px; // Dodajemo razmak između linkova
           flex-direction: row;
-          svg {
-            fill: $text-color;
-            font-size: 24px;
+          img {
+            height: 30px;
+            width: auto;
             margin-right: 30px;
             padding: 0;
-            &:hover{
-              fill: $text-light;
-              background-color: black;
-              clip-path: circle(60%)
-            }
+            cursor: pointer;
           }
-          
+
           a {
             @include nav-link-styles;
             &:hover {
               color: $text-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: $background-dark;
+    min-width: 160px;
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      a {
+        @include nav-link-styles;
+        margin-right: 0;
+        display: block;
+      }
+    }
+
+    &.open {
+      display: block;
+    }
+  }
+
+  .navigations-mobile.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+
+    a {
+      margin-bottom: 10px; // Dodajemo razmak između linkova
+    }
+  }
+  hr {
+    margin: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+.dark{
+  .navBar{
+    background-color: $background-dark;
+    .group{
+      .logo{
+        a{
+          img{
+            filter:grayscale(5)
+          }
+        }
+      }
+      .navigations{
+        ul{
+          li{
+           a{
+            color: $text-light;
+             &:hover{
+              background-color: $hover-dark;
+            }
+             }
+           }
           }
         }
       }
     }
   }
 
-
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  background-color: $background-dark;
-  min-width: 160px;
-  z-index: 1;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-
-    li {
-      margin-bottom: 5px;
-    }
-
-    a {
-      @include nav-link-styles;
-      margin-right: 0;
-      display: block;
-    }
-  }
-
-  &.open {
-    display: block;
-  }
-}
-
-.navigations-mobile.open {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-
-  a {
-    margin-bottom: 10px; // Dodajemo razmak između linkova
-  }
-}
-hr{
-  margin: 0;
-  margin-top: 10px;
-  width: 100%;
-}
-}
 
 @media (max-width: 1024px) {
   .navBar {

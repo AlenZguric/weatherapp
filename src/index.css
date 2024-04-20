@@ -4,3 +4,12 @@
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.App{
+    width: 100vw;
+    min-height: 100vh;
+    background: #f8f9fa;
+    transition: .5s;
+}
+.App.dark{
+background: #222;
+}

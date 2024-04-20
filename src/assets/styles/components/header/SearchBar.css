@@ -8,8 +8,9 @@
 .search-bar input[type=text] {
   padding: 8px;
   border: 1px solid #ced4da;
-  border-radius: 5px;
+  border-radius: 50px;
   font-size: 16px;
+  text-align: center;
   color: #333;
   background-color: #fff;
   width: 100%;
@@ -17,6 +18,12 @@
 .search-bar input[type=text]:focus {
   outline: none;
   border-color: #007bff;
+}
+.search-bar input[type=text]::-moz-placeholder {
+  text-align: center;
+}
+.search-bar input[type=text]::placeholder {
+  text-align: center;
 }
 .search-bar button {
   padding: 8px 12px;
@@ -44,4 +51,22 @@
 }
 .search-bar svg:hover {
   color: #0056b3;
+}
+
+.dark .search-bar input[type=text] {
+  background: #343a40;
+  color: white;
+  border: 2px solid white;
+}
+.dark .search-bar input[type=text]::-moz-placeholder {
+  color: gray;
+}
+.dark .search-bar input[type=text]::placeholder {
+  color: gray;
+}
+.dark button {
+  background-color: #343a40;
+}
+.dark button:hover {
+  background-color: #212529;
 }/*# sourceMappingURL=SearchBar.css.map */

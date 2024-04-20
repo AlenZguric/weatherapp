@@ -31,6 +31,8 @@
 }
 .navBar .group .navigations ul {
   display: flex;
+  flex: 1;
+  align-items: center;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -39,19 +41,16 @@
   margin-right: 6px;
   flex-direction: row;
 }
-.navBar .group .navigations ul li svg {
-  fill: #333;
-  font-size: 24px;
+.navBar .group .navigations ul li img {
+  height: 30px;
+  width: auto;
   margin-right: 30px;
   padding: 0;
-}
-.navBar .group .navigations ul li svg:hover {
-  fill: #fff;
-  background-color: black;
-  -webkit-clip-path: circle(60%);
-          clip-path: circle(60%);
+  cursor: pointer;
 }
 .navBar .group .navigations ul li a {
+  justify-content: center;
+  align-items: center;
   color: #333;
   text-decoration: none;
   padding: 10px 15px;
@@ -90,6 +89,8 @@
   margin-bottom: 5px;
 }
 .navBar .dropdown-content ul a {
+  justify-content: center;
+  align-items: center;
   color: #333;
   text-decoration: none;
   padding: 10px 15px;
@@ -123,6 +124,19 @@
   margin: 0;
   margin-top: 10px;
   width: 100%;
+}
+
+.dark .navBar {
+  background-color: #343a40;
+}
+.dark .navBar .group .logo a img {
+  filter: grayscale(5);
+}
+.dark .navBar .group .navigations ul li a {
+  color: #fff;
+}
+.dark .navBar .group .navigations ul li a:hover {
+  background-color: #212529;
 }
 
 @media (max-width: 1024px) {

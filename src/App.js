@@ -7,14 +7,25 @@ import NavBar from "./components/header/NavBar";
 import CityDetails from "./components/main/CityDetails";
 import CityListWeather from "./components/main/CityListWeather";
 import CopyRight from "./components/footer/CopyRight";
+import { useEffect, useState } from "react";
+
+
+
 
 function App() {
+  const curren_theme = localStorage.getItem("current_theme");
+  const [theme, setTheme] = useState(curren_theme ? curren_theme : 'light');
+
+  useEffect(() => {
+    localStorage.setItem("current_theme", theme);
+  }, [theme])
+
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className={`App ${theme}`}>
         <header>
           <nav>
-            <NavBar />
+            <NavBar theme={theme} setTheme={setTheme} />
           </nav>
         </header>
         <main>

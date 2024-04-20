@@ -30,3 +30,20 @@
     }
   }
 }
+.dark{.search-bar {
+  input[type="text"]{
+    background:  #343a40 ;
+    color: white;
+    border: 2px solid white;
+    &::placeholder{
+      color: gray;
+    }
+  }
+}
+button{
+  background-color: #343a40;
+  &:hover{
+    background-color: $hover-dark;
+  }
+}
+}
