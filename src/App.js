@@ -1,4 +1,4 @@
-import { BrowserRouter , Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/HomePage";
 import MyPlaces from "./pages/MyPlaces";
 import Favorites from "./pages/Favorites";
@@ -9,28 +9,28 @@ import CityListWeather from "./components/main/CityListWeather";
 import CopyRight from "./components/footer/CopyRight";
 
 function App() {
-
-
   return (
     <BrowserRouter>
       <div className="App">
         <header>
-          <NavBar />
+          <nav>
+            <NavBar />
+          </nav>
         </header>
         <main>
           <Routes>
-            <Route exact path="/" element={<Home/>} />
-            <Route path="/myplaces" element={<MyPlaces/>} />
-            <Route path="/favorites" element={<Favorites/>} />
-            <Route path="/about" element={<About/>} />
+            <Route exact path="/" element={<Home />} />
+            <Route path="/myplaces" element={<MyPlaces />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/about" element={<About />} />
             <Route path="/citys/:cityName" element={<CityDetails />} />
 
-            <Route path='/citys/:cityName' element={<CityDetails />} />
+            <Route path="/citys/:cityName" element={<CityDetails />} />
             <Route path="/citylistweather" element={<CityListWeather />} />
           </Routes>
         </main>
         <footer>
-          <CopyRight/>
+          <CopyRight />
         </footer>
       </div>
     </BrowserRouter>
