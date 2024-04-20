@@ -1,14 +1,15 @@
 import React, { useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars} from "react-icons/fa";
-import { MdLightMode, MdDarkMode } from "react-icons/md";
 
 import logo_dall_e3 from "../../assets/images/background_img/logo_dall_e3.jpg";
 import SearchBar from "../header/SearchBar";
+import toogle_light from "../../assets/images/icons/night.png";
+import toogle_dark from "../../assets/images/icons/day.png";
 
 import "../../assets/styles/components/header/NavBar.css";
 
-function NavBar() {
+function NavBar({theme, setTheme}) {
   const location = useLocation();
   const showSearchBar = useMemo(() => {
     return location.pathname !== "/about";
@@ -19,7 +20,6 @@ function NavBar() {
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   // const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   // const [isTablet, setIsTablet] = useState(
   //   window.innerWidth >= 769 && window.innerWidth <= 1024
@@ -43,7 +43,7 @@ function NavBar() {
     setIsMenuOpen(!isMenuOpen);
   };
   const toggleDarkMode = ( )=>{
-    setIsDarkMode(!isDarkMode);
+    theme === 'light' ? setTheme('dark') : setTheme('light');
   }
 
   return (
@@ -56,14 +56,14 @@ function NavBar() {
             </div>
           </Link>
         </div>
-        {showSearchBar && <SearchBar onSearch={handleSearch} />}
+        {showSearchBar && <SearchBar onSearch={handleSearch} theme={theme} setTheme={setTheme}/>}
         <div className="menu-icon" onClick={toggleMenu}>
           <FaBars />
         </div>
         <div className="navigations">
           <ul>
             <li>
-            {isDarkMode ? <MdDarkMode onClick={toggleDarkMode}/> : <MdLightMode onClick={toggleDarkMode}/> }
+              <img src={theme === 'light' ? toogle_light : toogle_dark} alt="light_mode" className="toogle-icon" onClick={()=>{toggleDarkMode()}}/>
             </li>
             <li>
               <Link to="/">Home</Link>
