@@ -1,0 +1,32 @@
+@import "../../colors/Colors.scss";
+@import "../../mixins/MixinInputButton.scss";
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+ width: 50%;
+  
+
+  input[type="text"] {
+    @include input-styles;
+    width: 100%;
+  }
+
+  button {
+    @include button-styles;
+    margin-left: 10px;
+  }
+
+  svg {
+    margin-left: 10px;
+    font-size: 20px;
+    color: $primary-color;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-dark;
+    }
+  }
+}
