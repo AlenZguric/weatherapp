@@ -7,6 +7,8 @@ import NavBar from "./components/header/NavBar";
 import CityDetails from "./components/main/CityDetails";
 import CityListWeather from "./components/main/CityListWeather";
 import CopyRight from "./components/footer/CopyRight";
+import NotFound from "./components/main/NotFound";
+
 import { useEffect, useState } from "react";
 
 
@@ -38,6 +40,7 @@ function App() {
 
             <Route path="/citys/:cityName" element={<CityDetails />} />
             <Route path="/citylistweather" element={<CityListWeather />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <footer>
