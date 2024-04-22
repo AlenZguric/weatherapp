@@ -1,0 +1,99 @@
+@import "../mixins/TextStyleMixin.scss";
+@import "../mixins/MixinInputButton.scss";
+
+section {
+  .homePage {
+    display: flex;
+    flex-direction: column;
+
+    article {
+      display: flex;
+      flex-direction: column;
+
+      .hero-group {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex: 1;
+
+        .left-side,
+        .right-side {
+          height: 100vh;
+          width: 50%;
+        }
+
+        .left-side {
+          display: flex;
+          flex-direction: column;
+          padding: 0 20px;
+
+          .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .greeting {
+              display: flex;
+              font-size: 26px;
+              margin-top: 60px;
+
+              h4 {
+                font-family: "Inter, sans-serif";
+                color: #000000;
+
+              }
+            }
+
+            .type-text {
+                display: flex;
+                flex-wrap: wrap;
+                max-width: 500px;
+              h1 {
+                @include h1-text-style;
+                text-transform: uppercase;
+                margin-top: 100px;
+                margin-bottom: 100px;
+                padding-left: 30px;
+                
+              }
+              h2{
+                margin-top: 60px;
+                font-size: 30px;
+
+              }
+            }
+            h3{
+                font-size: 16px;
+                margin-top: 30px;
+                font-weight: 200;
+                a{
+                    text-decoration: none;
+                    &:hover{
+                       transform:translate(10px,10px, 0); 
+                       cursor: pointer;
+                    }
+                }
+            }
+          }
+        }
+
+        .right-side {
+          display: flex;
+          width: 50%;
+          height: auto;
+
+          img {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+          }
+        }
+      }
+    .city-weather{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    }
+  }
+}
