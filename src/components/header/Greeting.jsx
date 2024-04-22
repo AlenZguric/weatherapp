@@ -8,11 +8,11 @@ const Greeting = () => {
     const currentHour = moment().hour();
 
     if (currentHour >= 6 && currentHour < 12) {
-      setGreeting('Good morning');
+      setGreeting('Good morning,');
     } else if (currentHour >= 12 && currentHour < 18) {
-      setGreeting('Good day');
+      setGreeting('Good day,');
     } else {
-      setGreeting('Good evening');
+      setGreeting('Good evening,');
     }
   }, []);
 
