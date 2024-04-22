@@ -1,0 +1,13 @@
+@import "../fonts/Fonts.scss";
+@import "../colors/Colors.scss";
+
+
+@mixin h1-text-style{
+    font-family: "Inter, sans-serif";
+    color: $primary-color;
+    font-size: 48px;
+    line-height: 1.5;
+    font-weight: 600;
+    text-shadow: 4px 4px 2px $primary-light;
+
+}
