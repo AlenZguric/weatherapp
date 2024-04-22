@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CityListWeather from "../components/main/CityListWeather";
 import Greeting from "../components/header/Greeting";
 import TypeText from "../utils/TypeText";
@@ -7,6 +7,7 @@ import WeatherPicture from "../assets/images/background_img/light-mode-pict.jpg"
 import "../assets/styles/pages/HomePage.css";
 const HomePage = () => {
   const [showSecondText, setShowSecondText] = useState(false);
+  const cityListWeatherRef = useRef(null);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -15,6 +16,11 @@ const HomePage = () => {
 
     return () => clearTimeout(timeout);
   }, []);
+
+  const scrollToCityListWeather = () => {
+    cityListWeatherRef.current.scrollIntoView({ bahavior: "smooth" });
+  };
+
   return (
     <section>
       <div className="homePage">
@@ -30,6 +36,10 @@ const HomePage = () => {
                     initialDelay={1500}
                     element="h1"
                   />
+                  <button onClick={scrollToCityListWeather}>
+                    Scroll to City List Weather
+                  </button>
+
                   {showSecondText && (
                     <TypeText
                       text={"Weather forecast"}
@@ -38,16 +48,15 @@ const HomePage = () => {
                       element="h2"
                     />
                   )}
-
                   <h3>
-                    by:{" "}
+                    by:
                     <a
                       href="http://www.openweathermap.org/api"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       OpenWeatherMap
-                    </a>{" "}
+                    </a>
                     API's
                   </h3>
                 </div>
@@ -59,7 +68,7 @@ const HomePage = () => {
           </div>
         </article>
         <article>
-          <div className="city-weather">
+          <div className="city-weather" ref={cityListWeatherRef}>
             <CityListWeather />
           </div>
         </article>
