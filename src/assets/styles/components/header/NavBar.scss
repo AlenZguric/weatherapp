@@ -112,33 +112,32 @@
     width: 100%;
   }
 }
-.dark{
-  .navBar{
+.dark {
+  .navBar {
     background-color: $background-dark;
-    .group{
-      .logo{
-        a{
-          img{
-            filter:grayscale(5)
+    .group {
+      .logo {
+        a {
+          img {
+            filter: grayscale(5);
           }
         }
       }
-      .navigations{
-        ul{
-          li{
-           a{
-            color: $text-light;
-             &:hover{
-              background-color: $hover-dark;
+      .navigations {
+        ul {
+          li {
+            a {
+              color: $text-light;
+              &:hover {
+                background-color: $hover-dark;
+              }
             }
-             }
-           }
           }
         }
       }
     }
   }
-
+}
 
 @media (max-width: 1024px) {
   .navBar {
