@@ -1,7 +1,10 @@
 @import "../mixins/TextStyleMixin.scss";
 @import "../mixins/MixinInputButton.scss";
+@import "../animations/slideAndShow.scss";
 
 section {
+  display: flex;
+  width: 100%;
   .homePage {
     display: flex;
     flex-direction: column;
@@ -46,6 +49,7 @@ section {
 
             .type-text {
                 display: flex;
+                flex-direction: column;
                 flex-wrap: wrap;
                 max-width: 500px;
               h1 {
@@ -54,23 +58,33 @@ section {
                 margin-top: 100px;
                 margin-bottom: 100px;
                 padding-left: 30px;
+                min-height: 300px;
+
                 
               }
               h2{
                 margin-top: 60px;
-                font-size: 30px;
+                font-size: 40px;
+                font-family: "Roboto, sans-serif";
+                font-weight: 100;
 
+              }
+              button{
+                @include button-styles;
+                align-self: center;
+                animation: slideAndShowBtn 5s linear forwards;
               }
             }
             h3{
-                font-size: 16px;
-                margin-top: 30px;
-                font-weight: 200;
+                font-size: 12px;
+                font-weight: 400;
+                animation: hideText 6s linear forwards;
                 a{
                     text-decoration: none;
                     &:hover{
                        transform:translate(10px,10px, 0); 
                        cursor: pointer;
+                       color: $primary-color;
                     }
                 }
             }
@@ -93,6 +107,7 @@ section {
       display: flex;
       flex-direction: column;
       width: 100%;
+    
     }
     }
   }
