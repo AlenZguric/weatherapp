@@ -63,7 +63,7 @@ function NavBar({theme, setTheme}) {
         <div className="navigations">
           <ul>
             <li>
-              <img src={theme === 'light' ? toogle_light : toogle_dark} alt="light_mode" className="toogle-icon" onClick={()=>{toggleDarkMode()}}/>
+              <img src={theme === 'light' ? toogle_light : toogle_dark} alt="light_mode" className="toogle-icon" onClick={()=>{toggleDarkMode()}} title="Dark/Light mode"/>
             </li>
             <li>
               <Link to="/">Home</Link>
@@ -82,6 +82,9 @@ function NavBar({theme, setTheme}) {
       </div>
       <div className={`dropdown-content${isMenuOpen ? "open" : ""}`}>
         <ul>
+          <li>
+          <img src={theme === 'light' ? toogle_light : toogle_dark} alt="light_mode" className="toogle-icon" onClick={()=>{toggleDarkMode()}} title="Dark/Light mode"/>
+          </li>
           <li>
             <Link to="/" onClick={toggleMenu}>
               Home
