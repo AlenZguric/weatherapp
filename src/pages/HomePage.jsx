@@ -2,9 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import CityListWeather from "../components/main/CityListWeather";
 import Greeting from "../components/header/Greeting";
 import TypeText from "../utils/TypeText";
-
+import { Link } from "react-scroll";
 import WeatherPicture from "../assets/images/background_img/light-mode-pict.jpg";
 import "../assets/styles/pages/HomePage.css";
+
 const HomePage = () => {
   const [showSecondText, setShowSecondText] = useState(false);
   const cityListWeatherRef = useRef(null);
@@ -17,9 +18,7 @@ const HomePage = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const scrollToCityListWeather = () => {
-    cityListWeatherRef.current.scrollIntoView({ bahavior: "smooth" });
-  };
+
 
   return (
     <section>
@@ -36,8 +35,10 @@ const HomePage = () => {
                     initialDelay={1500}
                     element="h1"
                   />
-                  <button onClick={scrollToCityListWeather}>
+                  <button >
+                  <Link to="city-weather" smooth={true} duration={1500}>
                     Scroll to City List Weather
+                  </Link>
                   </button>
 
                   {showSecondText && (
@@ -49,14 +50,14 @@ const HomePage = () => {
                     />
                   )}
                   <h3>
-                    by:
+                    by:{" "}
                     <a
                       href="http://www.openweathermap.org/api"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       OpenWeatherMap
-                    </a>
+                    </a>{" "}
                     API's
                   </h3>
                 </div>
@@ -68,7 +69,7 @@ const HomePage = () => {
           </div>
         </article>
         <article>
-          <div className="city-weather" ref={cityListWeatherRef}>
+          <div id="city-weather" className="city-weather" ref={cityListWeatherRef}>
             <CityListWeather />
           </div>
         </article>

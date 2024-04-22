@@ -51,6 +51,7 @@ const SearchBar = () => {
         onChange={(e) => setCityName(e.target.value)}
         onKeyPress={handleKeyPress}
         autoComplete="on"
+        name="inputCity"
       />
       {!(isMobile || isTablet) &&<button onClick={handleSearch}>Search</button>}
      {(isMobile || isTablet) && <FaSearch onClick={handleSearch}></FaSearch>}

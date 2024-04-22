@@ -9,6 +9,8 @@ import cityWeatherData from "../../utils/cityWeatherData";
 import { getWindDirection } from "../../utils/getWindDirection";
 import cityImages from "../../utils/cityImages";
 
+import "../../assets/styles/components/main/CityWeatherList.css";
+
 const CityListWeather = () => {
   const [weatherData, setWeatherData] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -91,8 +93,6 @@ const CityListWeather = () => {
 
   return (
     <div className="city-list-weather">
-      <h1>Weather Forecast</h1>
-
       {errorMessage && (
         <div className="error-message">
           <p>{errorMessage}</p>
@@ -106,14 +106,46 @@ const CityListWeather = () => {
           {weatherData.slice(0, loadedCities).map((cityWeather, index) => (
             <div className="weather-card" key={index}>
               <div className="image-of-city">
-                <div className="image">
-                  {cityImages[cityWeather.name] && (
+                {cityImages[cityWeather.name] && (
+                  <img
+                    src={cityImages[cityWeather.name]}
+                    alt={cityWeather.name}
+                    loading="lazy"
+                  />
+                )}
+              </div>
+              <div className="weather-data">
+                <div className="name-city">
+                  <Link
+                    to={`/citys/${cityWeather.name.replace(/_/g, " ")}`}
+                    title="Click for more info!"
+                  >
+                    <h2>{cityWeather.name.replace(/_/g, " ")}</h2>
+                  </Link>
+                  <p>Feels Like {cityWeather.feelsLike} °C</p>
+                </div>
+
+             
+                <div className="data-weather">
+                  <div className="main-data">
+                  <p>Min. Temp: {cityWeather.minTemp} °C</p>
+
+                    <p>Temperature: {cityWeather.temp} °C</p>
+                    <p>Max. Temp: {cityWeather.maxTemp} °C</p>
+                  </div>
+                  <div className="other-data">
+                    <p>Wind: {cityWeather.wind} m/s</p>
+                    <p>
+                      Wind direction:{" "}
+                      {getWindDirection(cityWeather.windDirection)}
+                    </p>
+                    <p>Precipitation: {cityWeather.precipitation}</p>
+
                     <img
-                      src={cityImages[cityWeather.name]}
-                      alt={cityWeather.name}
-                      loading="lazy"
+                      src={`http://openweathermap.org/img/wn/${cityWeather.icon}.png`}
+                      alt="Weather Icon"
                     />
-                  )}
+                  </div>
                 </div>
                 <div className="wikipedia">
                   <a
@@ -123,43 +155,26 @@ const CityListWeather = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Learn about...
+                    Discover more about {cityWeather.name}
                   </a>
                 </div>
+
+
+                <FontAwesomeIcon
+                  icon={faStar}
+                  color={
+                    favorites.includes(cityWeather.name) ? "yellow" : "black"
+                  }
+                  onClick={() => toggleFavorite(cityWeather.name)}
+                />
               </div>
-              <Link to={`/citys/${cityWeather.name.replace(/_/g, " ")}`}>
-                <h2>{cityWeather.name.replace(/_/g, " ")}</h2>
-              </Link>
-
-              <p>Feels Like: {cityWeather.feelsLike} °C</p>
-              <p>Temperature: {cityWeather.temp} °C</p>
-              <p>Min. Temp: {cityWeather.minTemp} °C</p>
-              <p>Max. Temp: {cityWeather.maxTemp} °C</p>
-              <p>Wind: {cityWeather.wind} m/s</p>
-              <p>
-                Wind direction: {getWindDirection(cityWeather.windDirection)}
-              </p>
-              <p>Precipitation: {cityWeather.precipitation}</p>
-
-              <img
-                src={`http://openweathermap.org/img/wn/${cityWeather.icon}.png`}
-                alt="Weather Icon"
-              />
-              <FontAwesomeIcon
-                icon={faStar}
-                color={
-                  favorites.includes(cityWeather.name) ? "yellow" : "black"
-                }
-                onClick={() => toggleFavorite(cityWeather.name)}
-              />
-              
             </div>
           ))}
         </div>
       )}
       {!isLoading && loadedCities < weatherData.length && (
-                <button onClick={loadMoreCities}>Load More</button>
-              )}
+        <button onClick={loadMoreCities}>Load More</button>
+      )}
     </div>
   );
 };
