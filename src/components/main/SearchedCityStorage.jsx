@@ -18,7 +18,7 @@ const SearchedCityStorage = () => {
         <div className="error-msg">No recently searched cities found.</div>
       ) : (
         <>
-          <h2>Recently Searched Cities</h2>
+         
           <ul>
             {storedCities.map((city, index) => (
               <li key={index}>
