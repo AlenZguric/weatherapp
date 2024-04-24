@@ -1,0 +1,69 @@
+@import "../../colors/Colors.scss";
+
+.searched-city-storage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  .sort-btns{
+    display: flex;
+    width: 70%;
+padding: 10px;
+    button{
+        width: 20px;
+        margin: 6px;
+        &:active{
+           background-color: $primary-color;
+        }
+    }
+  }
+  .error-msg {
+    display: flex;
+    transform: translateY(200px);
+    flex-direction: column;
+    p {
+      font-size: 35px;
+      color: red;
+      &:nth-child(2){
+        font-size: 16px;
+        color: black;
+        align-self: center;
+        margin-top: 20px;
+      }
+    }
+  }
+  ul {
+    width: 70%;
+    list-style-type: none;
+    li {
+      display: flex;
+      flex-direction: column;
+      .searched-city-storage-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 0;
+        align-items: center;
+        .time, p{
+            font-size: 16px;
+        }
+        .city{
+           a,p{
+            text-transform: capitalize;
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+           }
+        }
+        .delete-btn{
+            button{
+              height: 40px;
+              width: 35px;  
+            }
+        }
+      }
+    
+    }
+  }
+}

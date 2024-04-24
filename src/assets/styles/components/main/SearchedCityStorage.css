@@ -1,0 +1,62 @@
+.searched-city-storage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.searched-city-storage .sort-btns {
+  display: flex;
+  width: 70%;
+  padding: 10px;
+}
+.searched-city-storage .sort-btns button {
+  width: 20px;
+  margin: 6px;
+}
+.searched-city-storage .sort-btns button:active {
+  background-color: #007bff;
+}
+.searched-city-storage .error-msg {
+  display: flex;
+  transform: translateY(200px);
+  flex-direction: column;
+}
+.searched-city-storage .error-msg p {
+  font-size: 35px;
+  color: red;
+}
+.searched-city-storage .error-msg p:nth-child(2) {
+  font-size: 16px;
+  color: black;
+  align-self: center;
+  margin-top: 20px;
+}
+.searched-city-storage ul {
+  width: 70%;
+  list-style-type: none;
+}
+.searched-city-storage ul li {
+  display: flex;
+  flex-direction: column;
+}
+.searched-city-storage ul li .searched-city-storage-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 0;
+  align-items: center;
+}
+.searched-city-storage ul li .searched-city-storage-box .time, .searched-city-storage ul li .searched-city-storage-box p {
+  font-size: 16px;
+}
+.searched-city-storage ul li .searched-city-storage-box .city a, .searched-city-storage ul li .searched-city-storage-box .city p {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+.searched-city-storage ul li .searched-city-storage-box .delete-btn button {
+  height: 40px;
+  width: 35px;
+}/*# sourceMappingURL=SearchedCityStorage.css.map */
