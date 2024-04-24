@@ -10,7 +10,6 @@
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
-    
 
     .weather-card {
       width: calc(100%);
@@ -22,7 +21,6 @@
       position: relative; /* Omogućava relativno pozicioniranje */
 
       .image-of-city {
-        
         min-height: 800px;
         position: relative; /* Omogućava pozicioniranje elemenata unutar njega */
         overflow: hidden; /* Skriva dijelove slike koji prelaze granice */
@@ -53,12 +51,15 @@
           flex-direction: column;
           align-items: flex-start;
           a {
-           
             text-decoration: none;
             background: linear-gradient(
-             60deg,
-              $primary-dark, $primary-color, $primary-light, $secondary-light);
-           background-clip: text;
+              60deg,
+              $primary-dark,
+              $primary-color,
+              $primary-light,
+              $secondary-light
+            );
+            background-clip: text;
             color: transparent;
             font-weight: 600;
             text-transform: uppercase;
@@ -69,9 +70,14 @@
             &:hover {
               background: linear-gradient(
                 60deg,
-                   $secondary-light, $primary-dark, $primary-color, $primary-color,$primary-light);
-               background-clip: text;
-               color: transparent;
+                $secondary-light,
+                $primary-dark,
+                $primary-color,
+                $primary-color,
+                $primary-light
+              );
+              background-clip: text;
+              color: transparent;
             }
           }
           p {
@@ -80,19 +86,16 @@
             font-weight: 600;
             font-size: 24px;
           }
-          .favorite{
+          .favorite {
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
-            transform: translate(150px, -40px) ;
+            transform: translate(150px, -40px);
             width: 80%;
-            .svg-inline--fa{
-              
+            .svg-inline--fa {
               height: calc(1.5vw + 10px);
               width: auto;
-             
             }
-           
           }
         }
         .data-weather {
@@ -123,26 +126,26 @@
               }
             }
           }
-          .other-data-box{
+          .other-data-box {
             display: flex;
             flex-direction: column;
             width: 80%;
             align-items: center;
             justify-content: center;
-            .other-data{
+            .other-data {
               display: flex;
               flex-direction: row;
               width: 100%;
               justify-content: space-around;
-              .other-data-left{
+              .other-data-left {
                 display: flex;
                 flex-direction: column;
                 width: 400px;
                 margin-top: 20px;
-                .other-data-sec{
+                .other-data-sec {
                   display: flex;
                   flex-direction: column;
-                  .other-data-sec-group{
+                  .other-data-sec-group {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
@@ -150,32 +153,31 @@
                   }
                 }
               }
-              .other-data-right{
+              .other-data-right {
                 display: flex;
                 align-items: center;
-                justify-content:center ;
-                img{
+                justify-content: center;
+                img {
                   width: 100px;
                   height: 100px;
-                  filter: drop-shadow(10px 10px 15px black) ;
+                  filter: drop-shadow(10px 10px 15px black);
                 }
               }
             }
-            .sunset-data-box{
+            .sunset-data-box {
               display: flex;
               flex-direction: column;
               max-width: 800px;
-              .sunset-data{
+              .sunset-data {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 font-size: 16px;
                 margin: 30px 0px 5px 0px;
-
               }
-              p.info{
+              p.info {
                 font-size: 12px;
-                span{
+                span {
                   color: $danger-color;
                   font-size: 20px;
                 }
@@ -183,12 +185,12 @@
             }
           }
         }
-        .wikipedia{
+        .wikipedia {
           display: flex;
           flex-direction: column;
           max-width: 400px;
           padding: 20px;
-          a{
+          a {
             @include nav-link-styles;
             margin-top: 30px;
             letter-spacing: 1px;
@@ -198,11 +200,11 @@
       }
     }
   }
-  .load-more-btn{
+  .load-more-btn {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
-    button{
+    button {
       @include button-styles;
     }
   }
