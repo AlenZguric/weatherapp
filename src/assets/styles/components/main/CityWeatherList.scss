@@ -1,0 +1,209 @@
+@import "../../colors/Colors.scss";
+@import "../../mixins/MixinInputButton.scss";
+
+.city-list-weather {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .weather-cards {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    
+
+    .weather-card {
+      width: calc(100%);
+      border: 1px solid #fdfdfd;
+      border-radius: 40px;
+      margin-bottom: 40px;
+      overflow: hidden;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+      position: relative; /* Omogućava relativno pozicioniranje */
+
+      .image-of-city {
+        
+        min-height: 800px;
+        position: relative; /* Omogućava pozicioniranje elemenata unutar njega */
+        overflow: hidden; /* Skriva dijelove slike koji prelaze granice */
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 0;
+        }
+      }
+
+      .weather-data {
+        position: absolute; /* Omogućava pozicioniranje unutar .weather-card */
+        bottom: 0; /* Postavlja .weather-data na dno .weather-card */
+        left: 0; /* Postavlja .weather-data na lijevu stranu .weather-card */
+        width: 100%;
+        height: 100%; /* Širina cijelog .weather-card */
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.822);
+        border-top: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+        .name-city {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          a {
+           
+            text-decoration: none;
+            background: linear-gradient(
+             60deg,
+              $primary-dark, $primary-color, $primary-light, $secondary-light);
+           background-clip: text;
+            color: transparent;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: calc(4vw + 10px);
+            align-self: center;
+            margin: 30px 20px 20px 20px;
+
+            &:hover {
+              background: linear-gradient(
+                60deg,
+                   $secondary-light, $primary-dark, $primary-color, $primary-color,$primary-light);
+               background-clip: text;
+               color: transparent;
+            }
+          }
+          p {
+            align-self: center;
+            transform: translateX(90px);
+            font-weight: 600;
+            font-size: 24px;
+          }
+          .favorite{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            transform: translate(150px, -40px) ;
+            width: 80%;
+            .svg-inline--fa{
+              
+              height: calc(1.5vw + 10px);
+              width: auto;
+             
+            }
+           
+          }
+        }
+        .data-weather {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          .main-data {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 85vw;
+            .main-data-temp {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 20px;
+              p {
+                padding-top: 10px;
+                &:nth-child(1) {
+                  font-size: 18px;
+                }
+                &:nth-child(2) {
+                  font-size: 24px;
+                  color: $primary-dark;
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+          .other-data-box{
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            align-items: center;
+            justify-content: center;
+            .other-data{
+              display: flex;
+              flex-direction: row;
+              width: 100%;
+              justify-content: space-around;
+              .other-data-left{
+                display: flex;
+                flex-direction: column;
+                width: 400px;
+                margin-top: 20px;
+                .other-data-sec{
+                  display: flex;
+                  flex-direction: column;
+                  .other-data-sec-group{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding: 6px 20px;
+                  }
+                }
+              }
+              .other-data-right{
+                display: flex;
+                align-items: center;
+                justify-content:center ;
+                img{
+                  width: 100px;
+                  height: 100px;
+                  filter: drop-shadow(10px 10px 15px black) ;
+                }
+              }
+            }
+            .sunset-data-box{
+              display: flex;
+              flex-direction: column;
+              max-width: 800px;
+              .sunset-data{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                font-size: 16px;
+                margin: 30px 0px 5px 0px;
+
+              }
+              p.info{
+                font-size: 12px;
+                span{
+                  color: $danger-color;
+                  font-size: 20px;
+                }
+              }
+            }
+          }
+        }
+        .wikipedia{
+          display: flex;
+          flex-direction: column;
+          max-width: 400px;
+          padding: 20px;
+          a{
+            @include nav-link-styles;
+            margin-top: 30px;
+            letter-spacing: 1px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  .load-more-btn{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    button{
+      @include button-styles;
+    }
+  }
+}

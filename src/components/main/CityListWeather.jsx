@@ -66,7 +66,7 @@ const CityListWeather = () => {
             const response = await axios.get(
               `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${API_Key}&units=metric`
             );
-            // console.log(response)
+            //  console.log(response);
 
             const cityWeatherDataObject = cityWeatherData(city, response);
             return cityWeatherDataObject;
@@ -122,32 +122,109 @@ const CityListWeather = () => {
                   >
                     <h2>{cityWeather.name.replace(/_/g, " ")}</h2>
                   </Link>
+                  <div className="favorite">
+                    <div className="favorite-image" title="Add to Favorites">
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        color={
+                          favorites.includes(cityWeather.name)
+                            ? "#f7d722"
+                            : "#4dabf7"
+                        }
+                        onClick={() => toggleFavorite(cityWeather.name)}
+                      />
+                    </div>
+                  </div>
                   <p>Feels Like {cityWeather.feelsLike} °C</p>
                 </div>
 
-             
                 <div className="data-weather">
                   <div className="main-data">
-                  <p>Min. Temp: {cityWeather.minTemp} °C</p>
-
-                    <p>Temperature: {cityWeather.temp} °C</p>
-                    <p>Max. Temp: {cityWeather.maxTemp} °C</p>
+                    <div className="main-data-temp">
+                      {" "}
+                      <p>Low Temperature </p>
+                      <p>{cityWeather.minTemp} °C</p>
+                    </div>
+                    <div className="main-data-temp">
+                      <p>Temperature </p>
+                      <p>{cityWeather.temp} °C</p>
+                    </div>
+                    <div className="main-data-temp">
+                      <p>High Temperature </p>
+                      <p>{cityWeather.maxTemp} °C</p>
+                    </div>
                   </div>
-                  <div className="other-data">
-                    <p>Wind: {cityWeather.wind} m/s</p>
-                    <p>
-                      Wind direction:{" "}
-                      {getWindDirection(cityWeather.windDirection)}
-                    </p>
-                    <p>Precipitation: {cityWeather.precipitation}</p>
+                  <div className="other-data-box">
+                    <div className="other-data">
+                      <div className="other-data-left">
+                        <div className="other-data-sec">
+                          <div className="other-data-sec-group">
+                            <p>Wind </p>
+                            <p>{cityWeather.wind.toFixed(1)} m/s</p>
+                          </div>
+                          <hr />
+                          <div className="other-data-sec-group">
+                            <p>Wind direction</p>
+                            <p>{getWindDirection(cityWeather.windDirection)}</p>
+                          </div>
+                          <hr />
+                        </div>
+                        <div className="other-data-sec">
+                          <div className="other-data-sec-group">
+                            <p>Precipitation </p>
 
-                    <img
-                      src={`http://openweathermap.org/img/wn/${cityWeather.icon}.png`}
-                      alt="Weather Icon"
-                    />
+                            <p>{cityWeather.precipitation}</p>
+                          </div>
+                          <hr />
+                          <div className="other-data-sec-group">
+                            <p>Visibility </p>
+                            <p>{cityWeather.visibility} m</p>
+                          </div>
+                          <hr />
+                        </div>
+                      </div>
+
+                      <div className="other-data-right">
+                        <div className="city-weather-icon">
+                          <img
+                            src={`http://openweathermap.org/img/wn/${cityWeather.icon}.png`}
+                            alt="Weather Icon"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="sunset-data-box">
+                      <div className="sunset-data">
+                        {" "}
+                        <p>
+                          Sunrise at{" "}
+                          {new Date(
+                            cityWeather.sunrise * 1000
+                          ).toLocaleTimeString("en-US", {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
+                        </p>{" "}
+                        <p>
+                          Sunset at{" "}
+                          {new Date(
+                            cityWeather.sunset * 1000
+                          ).toLocaleTimeString("en-US", {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
+                        </p>{" "}
+                      </div>
+
+                      <p className="info">
+                        <span>*</span>The sunrise and sunset times are displayed
+                        according to your time zone.
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="wikipedia">
+                <div className="wikipedia" title="Visit Wikipedia">
                   <a
                     href={`https://en.wikipedia.org/wiki/${encodeURIComponent(
                       cityWeather.name
@@ -155,26 +232,20 @@ const CityListWeather = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Discover more about {cityWeather.name}
+                    Discover more about {cityWeather.name.replace(/_/, " ")}
                   </a>
                 </div>
-
-
-                <FontAwesomeIcon
-                  icon={faStar}
-                  color={
-                    favorites.includes(cityWeather.name) ? "yellow" : "black"
-                  }
-                  onClick={() => toggleFavorite(cityWeather.name)}
-                />
               </div>
             </div>
           ))}
         </div>
       )}
+      <div className="load-more-btn">
       {!isLoading && loadedCities < weatherData.length && (
         <button onClick={loadMoreCities}>Load More</button>
       )}
+      </div>
+     
     </div>
   );
 };
