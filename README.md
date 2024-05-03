@@ -15,6 +15,6 @@ TIME SPENT FOR THE CREATION OF THE APPLICATION
 23.4.2024 2h
 24.4 2024 6h
 25.4.2024 1,5h
-3.5.2024 
+3.5.2024 4h
 Pictures download from https://www.pexels.com
 Image download https://www.freepik.com/
