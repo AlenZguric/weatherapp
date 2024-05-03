@@ -1,0 +1,90 @@
+.five-day-forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  overflow-y: scroll;
+  width: 100%;
+  background-color: rgba(138, 138, 138, 0.548);
+}
+.five-day-forecast .title {
+  display: flex;
+  margin: 30px 0px;
+}
+.five-day-forecast .title h2 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+.five-day-forecast .five-days-forecast-box {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  align-items: center;
+}
+.five-day-forecast .five-days-forecast-box .single-day {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.five-day-forecast .five-days-forecast-box .single-day .single-day-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.288);
+  border-radius: 10px 10px 0 0;
+}
+.five-day-forecast .five-days-forecast-box .single-day h3 {
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.five-day-forecast .five-days-forecast-box .single-day svg {
+  width: 30px;
+  height: 30px;
+  align-self: center;
+  justify-self: center;
+}
+.five-day-forecast .five-days-forecast-box .single-day-description {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0.288);
+  padding-bottom: 16px;
+}
+.five-day-forecast .five-days-forecast-box .single-day-description span {
+  display: flex;
+  width: 16%;
+  justify-content: center;
+}
+.five-day-forecast .five-days-forecast-box .single-day-data {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.288);
+  padding-bottom: 6px;
+}
+.five-day-forecast .five-days-forecast-box .single-day-data span {
+  display: flex;
+  width: 16%;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6px;
+}
+.five-day-forecast .five-days-forecast-box .single-day-data span:first-child {
+  border-right: 1px solid #fff;
+  font-weight: 600;
+}
+.five-day-forecast .five-days-forecast-box .single-day-data img {
+  display: flex;
+  width: 16%;
+  justify-content: center;
+  padding-top: 6px;
+  width: 40px;
+  height: 40px;
+}
+.five-day-forecast .five-days-forecast-box .single-day-data:hover {
+  background-color: rgba(78, 78, 78, 0.5058823529);
+}/*# sourceMappingURL=FiveDayForecast.css.map */

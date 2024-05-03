@@ -4,6 +4,8 @@
 .navBar {
   background-color: $background-light;
   padding: 10px 0px;
+  position: sticky;
+  top: 0;
 
   .group {
     display: flex;
