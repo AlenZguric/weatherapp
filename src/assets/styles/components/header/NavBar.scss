@@ -110,6 +110,9 @@
     margin: 0;
     margin-top: 10px;
     width: 100%;
+    border: 0;
+    height: 4px;
+    background-color: $secondary-light;
   }
 }
 .dark {
@@ -142,7 +145,7 @@
 @media (max-width: 1024px) {
   .navBar {
     .menu-icon {
-      display: block;
+      display: none;
     }
 
     .navigations {

@@ -47,10 +47,12 @@
   padding: 10px 0;
   align-items: center;
 }
-.searched-city-storage ul li .searched-city-storage-box .time, .searched-city-storage ul li .searched-city-storage-box p {
+.searched-city-storage ul li .searched-city-storage-box .time,
+.searched-city-storage ul li .searched-city-storage-box p {
   font-size: 16px;
 }
-.searched-city-storage ul li .searched-city-storage-box .city a, .searched-city-storage ul li .searched-city-storage-box .city p {
+.searched-city-storage ul li .searched-city-storage-box .city a,
+.searched-city-storage ul li .searched-city-storage-box .city p {
   text-transform: capitalize;
   text-decoration: none;
   color: black;
