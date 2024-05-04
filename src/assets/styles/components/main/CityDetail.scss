@@ -23,13 +23,12 @@
       color: black;
       transform: translateX(-150%);
       margin-bottom: 60px;
-      &:hover{
+      &:hover {
         font-weight: 700;
         text-decoration: underline;
         color: blue;
+      }
     }
-    }
-   
   }
   .current-weather-box-main {
     display: flex;
@@ -74,57 +73,54 @@
               background-color: #4e4e4e81;
             }
           }
-          .sunset-data-box{
+          .sunset-data-box {
             display: flex;
             flex-direction: column;
             width: 80%;
-            .sunset-data{
-                margin-top: 60px;
-                .sunset-row{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-evenly;
-                    width: 100%;
-                    .sunset-icon-text{
-                        display: flex;
-                        flex-direction: row;
-                        background-color: rgba(255, 255, 255, 0.768627451);
-                        border-radius: 15px;
-                        align-items: center;
-                        justify-content: center;
-                        svg.sunset-icon{
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            width: 50px;
-                            height: 50px;
-                          padding: 10px;
-                        }
-                    }
-                }
-            }
-            .info{
-                margin-top: 25px;
+            .sunset-data {
+              margin-top: 60px;
+              .sunset-row {
                 display: flex;
-                justify-content: center;
-                font-size: 14px;
-                letter-spacing: 1px;
-                font-weight: 500;
-                background-color: rgba(255, 255, 255, 0.768627451);
-
-                span{
-                    color: red;
-                    
+                flex-direction: row;
+                justify-content: space-evenly;
+                width: 100%;
+                .sunset-icon-text {
+                  display: flex;
+                  flex-direction: row;
+                  background-color: rgba(255, 255, 255, 0.768627451);
+                  border-radius: 15px;
+                  align-items: center;
+                  justify-content: center;
+                  svg.sunset-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 50px;
+                    height: 50px;
+                    padding: 10px;
+                  }
                 }
+              }
             }
-         
+            .info {
+              margin-top: 25px;
+              display: flex;
+              justify-content: center;
+              font-size: 14px;
+              letter-spacing: 1px;
+              font-weight: 500;
+              background-color: rgba(255, 255, 255, 0.768627451);
 
+              span {
+                color: red;
+              }
+            }
           }
         }
       }
     }
   }
-  .five-days-component{
+  .five-days-component {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -135,9 +131,8 @@
     background-image: url("../../../images/background_img/sky_and_clouds_dall_e3.jpg");
     background-size: cover;
     background-position: center;
-   width: 100%;
-   height: 70vh;
-   border-radius: 7px;
-
+    width: 100%;
+    height: 70vh;
+    border-radius: 7px;
   }
 }
