@@ -7,6 +7,17 @@
   width: 100%;
   background-color: rgba(138, 138, 138, 0.548);
 }
+.five-day-forecast::-webkit-scrollbar {
+  width: 9px;
+}
+.five-day-forecast::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+.five-day-forecast::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.753);
+  border-radius: 4px;
+}
 .five-day-forecast .title {
   display: flex;
   margin: 30px 0px;
@@ -84,6 +95,7 @@
   padding-top: 6px;
   width: 40px;
   height: 40px;
+  filter: drop-shadow(10px 7px 10px black);
 }
 .five-day-forecast .five-days-forecast-box .single-day-data:hover {
   background-color: rgba(78, 78, 78, 0.5058823529);
